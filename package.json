@@ -6,6 +6,9 @@
     "lodash": "^2.4.1",
     "multer": "0.0.7",
     "node-zip": "^1.1.0",
-    "temp": "^0.7.0"
+    "temp": "^0.7.0",
+    "multipart": "latest",
+    "sys": "latest"
+
   }
 }
