@@ -122,12 +122,12 @@ function theMagic(filepathandname) {
 
       //console.log("PHOTO:", index, name);
 
-      // var find = '">'+filename;
-      // var re = new RegExp(find, 'g');
-      // newfile = newfile.replace(re, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
+      var find = '">'+filename;
+      var re = new RegExp(find, 'g');
+      newfile = newfile.replace(re, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
 
-      newfile = newfile.replace('">'+filename, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
-      newfile = newfile.replace(''+filename, '');
+      // newfile = newfile.replace('">'+filename, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
+      // newfile = newfile.replace(''+filename, '');
 
       //console.log("PHOTO:", index, name);
     });
