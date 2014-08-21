@@ -9,6 +9,7 @@
     "multipart": "latest",
     "node-uuid": "^1.4.1",
     "node-zip": "^1.1.0",
+    "serve-favicon": "^2.0.1",
     "sys": "latest",
     "temp": "^0.7.0"
   }

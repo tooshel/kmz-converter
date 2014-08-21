@@ -6,6 +6,8 @@ var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
 var uuid = require('node-uuid');
+var favicon = require('serve-favicon');
+
 
 //var multipart = require('multipart');
 //var bodyParser = require("body-parser");
@@ -13,7 +15,10 @@ var uuid = require('node-uuid');
 //var exec = require('child_process').exec;
 
 var app = express();
-app.engine('jade', jade.__express);
+
+app.use(favicon(__dirname + '/public/favicon.ico'));
+
+app.set('view engine', 'jade');
 app.set('port', process.env.PORT || 3000);
 
 app.use(busboy({ immediate: true }));
@@ -30,7 +35,10 @@ app.use(busboy({ immediate: true }));
 //     }));
 //app.use(bodyParser({keepExtensions: true, uploadDir: __dirname+'/uploads' }));
 
+
 app.use(express.static(__dirname + '/public'));
+
+// view engine setup
 
 app.get('/', function(req, res){
   res.render('index.jade', { title: 'File Uploader' });
@@ -113,10 +121,14 @@ function theMagic(filepathandname) {
       //newfile = newfile.replace(pattern, "$1");
 
       //console.log("PHOTO:", index, name);
-      //newfile = newfile.replace('">'+filename, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a><br>'+filename+'<br>');
+
+      // var find = '">'+filename;
+      // var re = new RegExp(find, 'g');
+      // newfile = newfile.replace(re, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
+
       newfile = newfile.replace('">'+filename, '"><a href="Photos/'+filename.toLowerCase()+'"><img width="200" src="Photos/'+filename.toLowerCase()+'" /></a>');
       newfile = newfile.replace(''+filename, '');
-      //newfile = newfile.replace(files[i], 'ae <img width="200" src="Photos/'+files[i]+'" />');
+
       //console.log("PHOTO:", index, name);
     });
 
